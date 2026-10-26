@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Administrador - Feira da Lua</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+    <nav class="border-b border-slate-800 bg-slate-900/80 p-4 flex justify-between items-center">
+        <h1 class="font-bold text-amber-400 text-lg">🌙 FEIRA DA LUA <span class="text-xs text-slate-400 border border-amber-400/30 px-2 py-0.5 rounded ml-2">Painel Admin</span></h1>
+        <button id="btnLogout" class="text-xs bg-red-500/20 text-red-400 px-3 py-1.5 rounded border border-red-500/30 hover:bg-red-500/30">Sair</button>
+    </nav>
+
+    <main class="p-6 max-w-7xl mx-auto space-y-6">
+        <!-- Indicadores -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
+                <p class="text-xs text-slate-400">Total de Feiras</p>
+                <p id="totalFeiras" class="text-xl font-bold mt-1">0</p>
+            </div>
+            <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
+                <p class="text-xs text-slate-400">Total Dinheiro (Liq)</p>
+                <p id="totalDinheiro" class="text-xl font-bold text-emerald-400 mt-1">R$ 0,00</p>
+            </div>
+            <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
+                <p class="text-xs text-slate-400">Total PIX (Liq)</p>
+                <p id="totalPix" class="text-xl font-bold text-cyan-400 mt-1">R$ 0,00</p>
+            </div>
+            <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
+                <p class="text-xs text-slate-400">Saldo Líquido Geral</p>
+                <p id="saldoLiquido" class="text-xl font-bold text-amber-400 mt-1">R$ 0,00</p>
+            </div>
+        </div>
+
+        <!-- Tabela de Cobrança / Pendentes -->
+        <section class="bg-slate-900 p-5 rounded-xl border border-slate-800">
+            <h2 class="text-sm font-semibold text-amber-400 mb-3">Relatório de Pendentes para Cobrança</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs text-slate-300">
+                    <thead class="bg-slate-800/60 text-slate-400">
+                        <tr>
+                            <th class="p-2">Feira (Data)</th>
+                            <th class="p-2">Feirante</th>
+                            <th class="p-2">Contato</th>
+                            <th class="p-2">Valor Pendente</th>
+                            <th class="p-2">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaPendentes" class="divide-y divide-slate-800">
+                        <!-- Carregado via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>
